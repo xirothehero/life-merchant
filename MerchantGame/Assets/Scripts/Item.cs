@@ -27,6 +27,6 @@ public class Item : MonoBehaviour
 
     public Sprite GetSprite()
     {
-        return baseItem.variantSprites[variantId];
+        return baseItem.sprites[variantId];
     }
 }
