@@ -8,14 +8,15 @@ public class FadeIn : MonoBehaviour
 {
     public enum State { Out, Fading, In }
 
-    public float waitTime = 0.0f;
-    public float duration = 1.0f;
-    public State state = State.Out;
+    public float inWaitTime = 0.0f;
+    public float inDuration = 1.0f;
+    public float outWaitTime = 0.0f;
+    public float outDuration = 1.0f;
+    public State state = State.In;
 
-    Color ogColor;
+    public Color ogColor;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (GetComponent<Image>() != null)
         {
@@ -28,8 +29,6 @@ public class FadeIn : MonoBehaviour
         {
             Debug.LogError("No Image nor Text component to fade in O:");
         }
-
-        StartFadeIn();
     }
 
     public void StartFadeIn()
@@ -37,14 +36,20 @@ public class FadeIn : MonoBehaviour
         StartCoroutine(FadeInAnimation());
     }
 
+    public void StartFadeOut()
+    {
+        StartCoroutine(FadeOutAnimation());
+    }
+
     IEnumerator FadeInAnimation()
     {
+        Debug.Log("fadein");
         SetColor(new Color(ogColor.r, ogColor.g, ogColor.b, 0));
         state = State.Fading;
 
         float timePassed = 0.0f;
 
-        while(timePassed <= waitTime)
+        while(timePassed <= inWaitTime)
         {
             timePassed += Time.deltaTime;
             yield return null;
@@ -52,14 +57,41 @@ public class FadeIn : MonoBehaviour
 
         timePassed = 0.0f;
 
-        while(timePassed <= duration)
+        while(timePassed <= inDuration)
         {
             timePassed += Time.deltaTime;
-            SetColor(new Color(ogColor.r, ogColor.g, ogColor.b, timePassed/duration * ogColor.a));
+            SetColor(new Color(ogColor.r, ogColor.g, ogColor.b, timePassed/inDuration * ogColor.a));
             yield return null;
         }
 
         state = State.In;
+
+        yield return null;
+    }
+
+    IEnumerator FadeOutAnimation()
+    {
+        SetColor(ogColor);
+        state = State.Fading;
+
+        float timePassed = 0.0f;
+
+        while (timePassed <= outWaitTime)
+        {
+            timePassed += Time.deltaTime;
+            yield return null;
+        }
+
+        timePassed = 0.0f;
+
+        while (timePassed <= outDuration)
+        {
+            timePassed += Time.deltaTime;
+            SetColor(new Color(ogColor.r, ogColor.g, ogColor.b, (1 - timePassed / outDuration) * ogColor.a));
+            yield return null;
+        }
+
+        state = State.Out;
 
         yield return null;
     }
