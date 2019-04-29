@@ -101,6 +101,14 @@ public class StoreManager : MonoBehaviour
     {
         foreach (Item item in selectedItems)
         {
+            // Random cost variance
+            if(realm == item.baseItem.realm)
+            {
+                item.currentCost = (int) (item.GetLowCost() * (1 + Random.Range(-buyVar, buyVar)));
+            } else
+            {
+                item.currentCost = (int) (item.GetHighCost() * (1 + Random.Range(-buyVar, buyVar)));
+            }
             Inventory.Get().AddItem(item);
             stock.Remove(item);
         }
