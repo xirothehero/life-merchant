@@ -45,12 +45,22 @@ public class ItemBox : MonoBehaviour
         if (!selected)
         {
             btnColor = selectColor;
-            StoreManager.Get().SelectItem(item);
+            if (type == Type.Buy){
+                StoreManager.Get().SelectItem(item);
+            }
+            else{
+                SellManager.Get().SelectItem(item);
+            }
         }
         else
         {
             btnColor = Color.white;
-            StoreManager.Get().DeselectItem(item);
+            if (type == Type.Buy){
+                StoreManager.Get().DeselectItem(item);
+            }
+            else {
+                SellManager.Get().DeselectItem(item);
+            }
         }
 
         GetComponent<Image>().color = btnColor;

@@ -2,16 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.SceneManagement;
+
 public class GameManager : MonoBehaviour
 {
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
 
-    // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
         Reset();
     }
 
@@ -28,9 +26,27 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void StartMenu()
+    {
+        Reset();
+        SceneManager.LoadScene("StartMenu");
+        Destroy(gameObject);
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("Blacksmith");
+
+    }
+
     public static GameManager Get()
     {
-        GameManager gm = GameObject.FindWithTag("Managers").GetComponent<GameManager>();
+        GameManager gm = null;
+
+        if(GameObject.FindWithTag("Managers") != null)
+        {
+            gm = GameObject.FindWithTag("Managers").GetComponent<GameManager>();
+        }
 
         return gm;
     }

@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Logic relating to the stock of the store
-public class StoreManager : MonoBehaviour
+public class SellManager : MonoBehaviour
 {
-    
-    // Points to inventory instance
+   // Points to inventory instance
     public Inventory inventory;
-    // All items available for purchase
-    public List<Item> stock;
+
+    public List<Item> inventoryItems;
     // Items selected by the player
     public List<Item> selectedItems;
 
@@ -22,16 +20,15 @@ public class StoreManager : MonoBehaviour
     void Start()
     {
         inventory = Inventory.Get();
+        inventoryItems = Inventory.Get().GetItems();
 
-        //Remove once the scenes are linked
-        GenerateStock(10);
     }
 
-    public static StoreManager Get()
+    public static SellManager Get()
     {
-        StoreManager store = GameObject.FindWithTag("Managers").GetComponent<StoreManager>();
+        SellManager selling = GameObject.FindWithTag("Managers").GetComponent<SellManager>();
 
-        return store;
+        return selling;
     }
 
     public void SetRealm(BaseItem.Realm r)
@@ -39,34 +36,8 @@ public class StoreManager : MonoBehaviour
         realm = r;
     }
 
-    public void GenerateStock(int qty)
-    {
-        for(int i = 0; i < qty; i++)
-        {
-            Item item = ItemCatalog.GetRandomItem();
-
-            // Random cost variance
-            if(realm == item.baseItem.realm)
-            {
-                item.currentCost = (int) (item.GetLowCost() * (1 + Random.Range(-buyVar, buyVar)));
-            } else
-            {
-                item.currentCost = (int) (item.GetHighCost() * (1 + Random.Range(-buyVar, buyVar)));
-            }
-
-            stock.Add(item);
-        }
-    }
-
-    public List<Item> GetStock()
-    {
-        return stock;
-    }
-
-    public void ClearStock()
-    {
-        stock.Clear();
-        selectedItems.Clear();
+    public List<Item> GetInvItems(){
+        return inventoryItems;
     }
 
     public void SelectItem(Item item)
@@ -97,12 +68,11 @@ public class StoreManager : MonoBehaviour
     }
 
     // Move selectedItems to inventory
-    public void Buy()
+    public void Sell()
     {
         foreach (Item item in selectedItems)
         {
-            Inventory.Get().AddItem(item);
-            stock.Remove(item);
+            inventoryItems.Remove(item);
         }
 
         selectedItems.Clear();
