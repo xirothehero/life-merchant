@@ -7,7 +7,7 @@ public class ItemCatalog : MonoBehaviour
 
     public List<BaseItem> baseItems;
 
-    static Item GetRandomItem()
+    public static Item GetRandomItem()
     {
         ItemCatalog catalog = GameObject.FindWithTag("Managers").GetComponent<ItemCatalog>();
         BaseItem baseItem = catalog.baseItems[Random.Range(0, catalog.baseItems.Count)];
