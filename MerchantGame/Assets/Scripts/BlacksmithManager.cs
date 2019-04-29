@@ -74,6 +74,6 @@ public class BlacksmithManager : MonoBehaviour
         }
 
         StoreManager.Get().ClearStock();
-        SceneManager.LoadScene("Blacksmith");
+        SceneManager.LoadScene("Combat");
     }
 }

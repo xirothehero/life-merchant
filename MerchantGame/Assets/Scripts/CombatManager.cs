@@ -68,7 +68,9 @@ public class CombatManager : MonoBehaviour
 
     public void useItem(){
         Item usedItem = Inventory.Get().GetItem(weaponIndex);
+        applyEffects(usedItem);
         Inventory.Get().RemoveItem(usedItem);
+        updateItem();
     }
 
     void applyEffects(Item item){

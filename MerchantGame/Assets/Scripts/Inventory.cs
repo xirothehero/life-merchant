@@ -21,7 +21,7 @@ public class Inventory : MonoBehaviour
 
     public Item GetItem(int index)
     {
-        if (index > 0 && index < countItems()){
+        if (index >= 0 && index < countItems()){
             return items[index];
         }
         return null;

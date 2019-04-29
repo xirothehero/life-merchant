@@ -140,6 +140,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numBattles: 3
   currBattle: 0
-  destinationSceneNames:
-  - Blacksmith
-  currentDestination: 0
+  destinationSceneName: Blacksmith
