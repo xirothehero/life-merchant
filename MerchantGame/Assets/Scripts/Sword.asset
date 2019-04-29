@@ -19,7 +19,16 @@ MonoBehaviour:
   - Stone
   - Copper
   - Steel
-  variantSprites: []
+  sprites:
+  - {fileID: 21300000, guid: 23181cb9a95842044982e984848e22b4, type: 3}
+  - {fileID: 21300000, guid: a91304d5581ee804fbe6e5bcaaf8f762, type: 3}
+  - {fileID: 21300000, guid: b4790b60b615518478f3773b86f111ad, type: 3}
+  - {fileID: 21300000, guid: 2c154be21d09fc445a784bf7d9eb8d85, type: 3}
+  descriptions:
+  - A plaything.
+  - A sword made out of WHAT? That's a terrible idea...
+  - Just like the Greeks had.
+  - It glitters beautifully as if made from starlight.
   lowCosts: 050000000a0000000f00000014000000
   highCosts: 060000000c0000001200000019000000
   effects:

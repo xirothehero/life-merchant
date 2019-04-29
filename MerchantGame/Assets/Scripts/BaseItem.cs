@@ -14,7 +14,9 @@ public class BaseItem : ScriptableObject
 
     public List<string> variantNames;
 
-    public List<Sprite> variantSprites;
+    public List<Sprite> sprites;
+
+    public List<string> descriptions;
 
     public List<int> lowCosts;
 
