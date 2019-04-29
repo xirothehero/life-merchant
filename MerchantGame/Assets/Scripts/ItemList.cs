@@ -2,32 +2,48 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// View controller
 public class ItemList : MonoBehaviour
 {
 
     public GameObject listItemTemplate;
 
-    private List<GameObject> items;
+    public List<GameObject> itemBoxes;
+
+    public GameObject listParent;
 
     // Start is called before the first frame update
     void Start()
     {
-        items = new List<GameObject>();
+        Display();
+    }
 
-        if (items.Count > 0){
-            foreach(GameObject item in items){
-                Destroy(item);
-            }
-            items.Clear();
+    public void Display()
+    {
+        // Clear current list
+        foreach(GameObject box in itemBoxes)
+        {
+            Destroy(box);
         }
 
-        for (int i = 0; i < 10; i++){
-            GameObject button = Instantiate(listItemTemplate);
-            button.SetActive(true);
-            button.GetComponent<ItemSelect>().SetInfo();
-            button.transform.SetParent(listItemTemplate.transform.parent, false);
+        // Build from StoreManager stock
+        foreach(Item item in StoreManager.Get().GetStock())
+        {
+            GameObject itemBox = Instantiate(listItemTemplate);
+            itemBox.GetComponent<ItemBox>().SetItem(item);
+            itemBox.transform.SetParent(listParent.transform, false);
+
+            itemBoxes.Add(itemBox);
         }
     }
+
+    public void Buy()
+    {
+        StoreManager.Get().Buy();
+        // Rebuilds display
+        Display();
+    }
+
 
     // Update is called once per frame
     void Update()

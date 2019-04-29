@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// A way to hold all the possible items and functions relating to those items
 public class ItemCatalog : MonoBehaviour
 {
 

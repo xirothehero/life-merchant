@@ -2,17 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : MonoBehaviour
+[System.Serializable]
+public class Item
 {
 
     public BaseItem baseItem;
     public int variantId = 0;
+
+    public int currentCost;
 
     public string GetName()
     {
         string itemName = baseItem.variantNames[variantId] + " " + baseItem.baseName;
 
         return itemName;
+    }
+
+    public string GetDescription()
+    {
+        string desc = baseItem.descriptions[variantId];
+        return desc;
+    }
+
+    public void SetCost(int i)
+    {
+        currentCost = i;
+    }
+
+    public int GetCurrentCost()
+    {
+        return currentCost;
     }
 
     public int GetLowCost()
