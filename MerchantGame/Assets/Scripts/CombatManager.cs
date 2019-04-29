@@ -25,6 +25,8 @@ public class CombatManager : MonoBehaviour
     public Color damageColor;
     public Color restColor;
 
+    public Color restTextColor;
+
     Enemy currentEnemy;
 
     int weaponIndex = 0;
@@ -94,6 +96,7 @@ public class CombatManager : MonoBehaviour
         Invoke("setEnemyRestColor",0.2f);
         currentEnemy.loseHealth(damage);
         UpdateEnemyValues();
+        
     }
     void CheckEnemyHealth(){
         if (currentEnemy.getHealth() == 0){
@@ -107,8 +110,8 @@ public class CombatManager : MonoBehaviour
 
     void setEnemyRestColor(){
         currentEnemyImage.color = restColor;
-        enemyAttackText.color = restColor;
-        enemyHealthText.color = restColor;
+        enemyAttackText.color = restTextColor;
+        enemyHealthText.color = restTextColor;
         weaponBox.gameObject.SetActive(true);
         CheckEnemyHealth();
     }
@@ -122,8 +125,8 @@ public class CombatManager : MonoBehaviour
 
     void setPlayerRestColor(){
         playerImage.color = restColor;
-        playerAttackText.color = restColor;
-        playerHealthText.color = restColor;
+        playerAttackText.color = restTextColor;
+        playerHealthText.color = restTextColor;
         weaponBox.gameObject.SetActive(true);
         CheckEnemyHealth();
     }
