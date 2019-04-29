@@ -8,8 +8,7 @@ public class JourneyManager : MonoBehaviour
     public int numBattles = 3;
     public int currBattle = 0;
 
-    public string[] destinationSceneNames;
-    public int currentDestination;
+    public string destinationSceneName;
 
     // Start is called before the first frame update
     void Start()
@@ -39,9 +38,7 @@ public class JourneyManager : MonoBehaviour
         currBattle++;
         currBattle %= numBattles;
         if (currBattle == numBattles - 1){
-            currentDestination++;
-            currentDestination %= destinationSceneNames.Length;
-            SceneManager.LoadScene(destinationSceneNames[currentDestination]);
+            SceneManager.LoadScene(destinationSceneName);
         }
         else{
             SceneManager.LoadScene("Combat");

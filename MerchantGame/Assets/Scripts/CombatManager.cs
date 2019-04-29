@@ -10,6 +10,8 @@ public class CombatManager : MonoBehaviour
 
     public ItemBox weaponBox;
 
+    public Image playerImage;
+
     public Image currentEnemyImage;
     public Text enemyHealthText;
     public Text enemyAttackText;
@@ -116,9 +118,27 @@ public class CombatManager : MonoBehaviour
         weaponBox.gameObject.SetActive(false);
     }
 
+    void setPlayerRestColor(){
+        playerImage.color = restColor;
+        playerAttackText.color = restColor;
+        playerHealthText.color = restColor;
+        weaponBox.gameObject.SetActive(true);
+        CheckEnemyHealth();
+    }
+
+    void setPlayerDamageColor(){
+        playerImage.color = damageColor;
+        playerAttackText.color = damageColor;
+        playerHealthText.color = damageColor;
+        weaponBox.gameObject.SetActive(false);
+    }
+
     void AttackPlayer(int damage){
+        setPlayerDamageColor();
         int health = (int) Mathf.Ceil(damage * (1 - 0.1f*playerDefenseModifier));
-        Player.Get().RemoveHealth(health);
+        if (!Player.Get().RemoveHealth(health)){
+            Invoke("setPlayerRestColor",0.2f);
+        }
         UpdatePlayerValues();
     }
 

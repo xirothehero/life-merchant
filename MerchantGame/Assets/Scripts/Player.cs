@@ -33,21 +33,24 @@ public class Player : MonoBehaviour
         CheckHealth();
     }
 
-    public void RemoveHealth(int i)
+    public bool RemoveHealth(int i)
     {
         health -= i;
-        CheckHealth();
+        return CheckHealth();
     }
 
-    public void CheckHealth()
+    public bool CheckHealth()
     {
         if(health <= deadThresh)
         {
             GameManager.Get().Die();
+            return true;
         } else if(health >= winThresh)
         {
             GameManager.Get().Win();
+            return true;
         }
+        return false;
     }
 
     // Update is called once per frame

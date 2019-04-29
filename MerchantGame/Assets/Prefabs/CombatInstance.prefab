@@ -175,6 +175,7 @@ MonoBehaviour:
   baseEnemies:
   - {fileID: 11400000, guid: 40cd88d4ecdda428e8a8b2f740f9331b, type: 2}
   weaponBox: {fileID: 6307845460792957919}
+  playerImage: {fileID: 6898092736533195070}
   currentEnemyImage: {fileID: 6898092735315695754}
   enemyHealthText: {fileID: 6898092737046176428}
   enemyAttackText: {fileID: 6898092736840544048}
