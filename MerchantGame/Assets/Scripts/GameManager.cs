@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.SceneManagement;
+
 public class GameManager : MonoBehaviour
 {
     private void Awake()
@@ -26,6 +28,12 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("Blacksmith");
+
     }
 
     public static GameManager Get()
