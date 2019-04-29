@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
     public void Die()
     {
         Debug.Log("boy u ded");
+        SceneManager.LoadScene("Death");
     }
 
     public void Win()

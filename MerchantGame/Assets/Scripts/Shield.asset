@@ -18,17 +18,17 @@ MonoBehaviour:
   - Paper
   - Wooden
   - Metal
-  - Knight's
+  - Dragon
   sprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 2f844f15071e93d41b8e89e1ae5fc0d4, type: 3}
+  - {fileID: 21300000, guid: 42104014ca4d60d44939abd11b078cdd, type: 3}
+  - {fileID: 21300000, guid: 1be295e2d1b72f645a12a25624b38b83, type: 3}
+  - {fileID: 21300000, guid: bb407d70ce4165c4e932d905c851aff1, type: 3}
   descriptions:
-  - 
-  - 
-  - 
-  - 
+  - Layers of paper are stacked together like paper mache.
+  - A little wooden shield.
+  - A sturdy defense.
+  - Nothing can pierce this.
   lowCosts: 0a0000000f000000140000001e000000
   highCosts: 0d000000130000001800000023000000
   effects:
