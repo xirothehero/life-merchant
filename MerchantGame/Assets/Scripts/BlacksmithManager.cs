@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BlacksmithManager : MonoBehaviour
 {
 
     public GameObject title;
+
+    public GameObject buyText;
 
     public GameObject managerBlueprint;
 
@@ -19,6 +23,17 @@ public class BlacksmithManager : MonoBehaviour
         if(GameObject.FindWithTag("Managers") == null)
         {
             Instantiate(managerBlueprint);
+        }
+
+        if (StoreManager.Get().realm == BaseItem.Realm.Physical)
+        {
+            title.GetComponent<Text>().text = "City of Akk-Ii";
+            buyText.GetComponent<Text>().text = "Buy from blacksmith";
+        }
+        else
+        {
+            title.GetComponent<Text>().text = "City of Ah-Yi";
+            buyText.GetComponent<Text>().text = "Buy from sorceror";
         }
 
         title.GetComponent<FadeIn>().StartFadeIn();
@@ -45,5 +60,20 @@ public class BlacksmithManager : MonoBehaviour
     public void ShowMarket()
     {
         sellPanel.SetActive(true);
+    }
+
+    public void LeaveRealm()
+    {
+        if (StoreManager.Get().realm == BaseItem.Realm.Physical)
+        {
+            StoreManager.Get().realm = BaseItem.Realm.Magical;
+        }
+        else
+        {
+            StoreManager.Get().realm = BaseItem.Realm.Physical;
+        }
+
+        StoreManager.Get().ClearStock();
+        SceneManager.LoadScene("Blacksmith");
     }
 }
