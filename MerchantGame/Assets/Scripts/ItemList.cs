@@ -43,15 +43,15 @@ public class ItemList : MonoBehaviour
             itemBoxes.Add(itemBox);
         }
 
-        foreach(Item item in SellManager.Get().GetInvItems())
-        {
-            GameObject itemBox = Instantiate(listItemTemplate);
-            itemBox.GetComponent<ItemBox>().type = ItemBox.Type.Sell;
-            itemBox.GetComponent<ItemBox>().SetItem(item);
-            itemBox.transform.SetParent(invListParent.transform, false);
+        // foreach(Item item in SellManager.Get().GetInvItems())
+        // {
+        //     GameObject itemBox = Instantiate(listItemTemplate);
+        //     itemBox.GetComponent<ItemBox>().type = ItemBox.Type.Sell;
+        //     itemBox.GetComponent<ItemBox>().SetItem(item);
+        //     itemBox.transform.SetParent(invListParent.transform, false);
 
-            itemBoxes.Add(itemBox);
-        }
+        //     itemBoxes.Add(itemBox);
+        // }
     }
 
     public void Buy()
