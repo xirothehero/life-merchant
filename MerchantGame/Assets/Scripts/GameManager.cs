@@ -6,14 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
 
-    // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
         Reset();
     }
 
@@ -30,6 +26,8 @@ public class GameManager : MonoBehaviour
         
     }
 
+
+
     public void StartGame()
     {
         SceneManager.LoadScene("Blacksmith");
@@ -38,7 +36,12 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Get()
     {
-        GameManager gm = GameObject.FindWithTag("Managers").GetComponent<GameManager>();
+        GameManager gm = null;
+
+        if(GameObject.FindWithTag("Managers") != null)
+        {
+            gm = GameObject.FindWithTag("Managers").GetComponent<GameManager>();
+        }
 
         return gm;
     }

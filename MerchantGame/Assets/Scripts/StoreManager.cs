@@ -22,10 +22,6 @@ public class StoreManager : MonoBehaviour
     void Start()
     {
         inventory = Inventory.Get();
-
-        // TODO remove after testing
-        GenerateStock(10);
-        GetStock();
     }
 
     public static StoreManager Get()
@@ -61,10 +57,6 @@ public class StoreManager : MonoBehaviour
 
     public List<Item> GetStock()
     {
-        // foreach(Item it in stock)
-        // {
-        //     Debug.Log(it.GetName());
-        // }
         return stock;
     }
 
