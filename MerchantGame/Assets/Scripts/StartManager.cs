@@ -13,6 +13,10 @@ public class StartManager : MonoBehaviour
 
     public List<GameObject> instructions;
 
+    public GameObject fadeBlack;
+
+    public GameObject spooky;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,12 +41,27 @@ public class StartManager : MonoBehaviour
                     title.GetComponent<FadeIn>().StartFadeOut();
                     begin.GetComponent<FadeIn>().StartFadeOut();
 
+                    spooky.SetActive(true);
+                    spooky.GetComponent<FadeIn>().StartFadeIn();
+
                     stage = Stage.ActuallyBegin;
                 }
             }
         } else if(stage == Stage.ActuallyBegin)
         {
             if (Input.GetMouseButtonUp(0))
+            {
+                fadeBlack.SetActive(true);
+                fadeBlack.GetComponent<FadeIn>().StartFadeIn();
+
+                foreach (GameObject instr in instructions)
+                {
+                    instr.SetActive(true);
+                    instr.GetComponent<FadeIn>().StartFadeOut();
+                }
+            }
+
+            if(fadeBlack.GetComponent<FadeIn>().state == FadeIn.State.In)
             {
                 GameManager.Get().StartGame();
             }
