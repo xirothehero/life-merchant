@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    public int health;
+    public int health = 50;
 
     public int deadThresh = 0;
     public int winThresh = 100;
@@ -13,7 +13,6 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = 50;
     }
 
     public static Player Get()

@@ -48,4 +48,8 @@ public class Item
     {
         return baseItem.sprites[variantId];
     }
+
+    public List<BaseItem.Effect> effects(){
+        return baseItem.effects;
+    }
 }
