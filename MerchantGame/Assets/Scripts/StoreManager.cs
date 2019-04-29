@@ -112,9 +112,8 @@ public class StoreManager : MonoBehaviour
             Inventory.Get().AddItem(item);
             stock.Remove(item);
         }
-
+        Player.Get().RemoveHealth(GetSelectedCost());
         selectedItems.Clear();
-
     }
 
     // Update is called once per frame

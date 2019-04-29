@@ -74,7 +74,7 @@ public class SellManager : MonoBehaviour
         {
             inventoryItems.Remove(item);
         }
-
+        Player.Get().AddHealth(GetSelectedCost());
         selectedItems.Clear();
 
     }
