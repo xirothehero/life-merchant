@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcf370de03c610149a2a5f112a929397, type: 3}
+  m_Name: Spell
+  m_EditorClassIdentifier: 
+  realm: 1
+  baseName: Magic Mist
+  variantNames:
+  - Knockoff
+  - Apprentice's
+  - Standard
+  - Advanced
+  sprites:
+  - {fileID: 21300000, guid: 030fd2473675fec4082f1205c8ccd589, type: 3}
+  - {fileID: 21300000, guid: f3d7a97d41eadb84fb02c069ec49b73b, type: 3}
+  - {fileID: 21300000, guid: 2db7a8f8508d96f46bba6aff919536a5, type: 3}
+  - {fileID: 21300000, guid: 91d4d0416cebbaa4ab9e7f8e5d501d82, type: 3}
+  descriptions:
+  - It looks as if someone unskilled had to quickly steal magic ink to copy down a
+    spell.
+  - A student's eventually successful attempt at a spell.
+  - This spell is guaranteed to be effective.
+  - This spell is covered in many extra enhancements between the standard spell.
+  lowCosts: 070000000c0000001900000028000000
+  highCosts: 0a0000000f0000001e00000032000000
+  effects:
+  - type: 0
+    effectValues: 01000000020000000400000006000000
+  - type: 1
+    effectValues: 140000001e0000003200000050000000
