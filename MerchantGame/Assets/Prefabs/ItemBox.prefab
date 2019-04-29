@@ -334,16 +334,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  item:
+    baseItem: {fileID: 0}
+    variantId: 0
+    currentCost: 0
   image: {fileID: 7959653302576772020}
   title: {fileID: 2880840898094063062}
   description: {fileID: 3367648300022251808}
   costText: {fileID: 1741710249}
   atk: {fileID: 1439665284}
   def: {fileID: 1359877812}
-  item:
-    baseItem: {fileID: 0}
-    variantId: 0
-    currentCost: 0
+  selected: 0
+  selectColor: {r: 0.754717, g: 0.4805981, b: 0.4805981, a: 1}
 --- !u!114 &2603340278544510040
 MonoBehaviour:
   m_ObjectHideFlags: 0

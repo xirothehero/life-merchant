@@ -22,6 +22,8 @@ public class ItemBox : MonoBehaviour
     public Text def;
 
     public bool selected = false;
+
+    public Color selectColor;
     
     public void SetItem(Item it)
     {
@@ -42,7 +44,7 @@ public class ItemBox : MonoBehaviour
 
         if (!selected)
         {
-            btnColor = Color.cyan;
+            btnColor = selectColor;
             StoreManager.Get().SelectItem(item);
         }
         else

@@ -72,3 +72,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f3417c89e8df2c4ea343107fbb38d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
+  stock: []
+  selectedItems: []
+  realm: 0
+  buyVar: 0.3

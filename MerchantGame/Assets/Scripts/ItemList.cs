@@ -33,8 +33,7 @@ public class ItemList : MonoBehaviour
             itemBox.GetComponent<ItemBox>().SetItem(item);
             itemBox.transform.SetParent(listParent.transform, false);
 
-            itemBoxes.Add(itemBox);
-        }
+            itemBoxes.Add(itemBox);        }
     }
 
     public void Buy()
