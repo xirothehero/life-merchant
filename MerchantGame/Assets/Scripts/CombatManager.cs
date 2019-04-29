@@ -96,7 +96,7 @@ public class CombatManager : MonoBehaviour
         Invoke("setEnemyRestColor",0.2f);
         currentEnemy.loseHealth(damage);
         UpdateEnemyValues();
-        
+        Invoke("AttackPlayer", 0.21f);
     }
     void CheckEnemyHealth(){
         if (currentEnemy.getHealth() == 0){
@@ -138,9 +138,9 @@ public class CombatManager : MonoBehaviour
         weaponBox.gameObject.SetActive(false);
     }
 
-    void AttackPlayer(int damage){
+    void AttackPlayer(){
         setPlayerDamageColor();
-        int health = (int) Mathf.Ceil(damage * (1 - 0.1f*playerDefenseModifier));
+        int health = (int) Mathf.Ceil(currentEnemy.getAttack() * (1 - 0.1f*playerDefenseModifier));
         if (!Player.Get().RemoveHealth(health)){
             Invoke("setPlayerRestColor",0.2f);
         }
