@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1295864873835875712}
   - component: {fileID: 2235986556543320458}
   - component: {fileID: 2239693494412605243}
+  - component: {fileID: 1010021056669962435}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Managers
@@ -123,6 +124,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc751e6d94acf4446b39f48dbdc8712b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 50
   deadThresh: 0
   winThresh: 100
+--- !u!114 &1010021056669962435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9145908760050707397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db3d69b022a9347a8ae83f6319e9131d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numBattles: 3
+  currBattle: 0
+  destinationSceneNames:
+  - Blacksmith
+  currentDestination: 0

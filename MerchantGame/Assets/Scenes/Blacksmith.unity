@@ -1260,6 +1260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: {fileID: 2115560027}
+  buyText: {fileID: 811114999}
   managerBlueprint: {fileID: 9145908760050707397, guid: 0891552efbed951409e123b082cd3c97,
     type: 3}
   buyPanel: {fileID: 942700235}
@@ -1502,7 +1503,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2076750037}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2026631776}
+        m_MethodName: LeaveRealm
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &2114118257

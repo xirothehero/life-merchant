@@ -19,6 +19,14 @@ public class Inventory : MonoBehaviour
         return items;
     }
 
+    public Item GetItem(int index)
+    {
+        if (index > 0 && index < countItems()){
+            return items[index];
+        }
+        return null;
+    }
+
     public void AddItem(Item item)
     {
         items.Add(item);
@@ -27,6 +35,10 @@ public class Inventory : MonoBehaviour
     public void RemoveItem(Item item)
     {
         items.Remove(item);
+    }
+
+    public int countItems(){
+        return items.Count;
     }
 
     // Start is called before the first frame update

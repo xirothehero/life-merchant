@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    public int health;
+    public int health = 50;
 
     public int deadThresh = 0;
     public int winThresh = 100;
@@ -13,7 +13,6 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = 50;
     }
 
     public static Player Get()
@@ -34,21 +33,24 @@ public class Player : MonoBehaviour
         CheckHealth();
     }
 
-    public void RemoveHealth(int i)
+    public bool RemoveHealth(int i)
     {
         health -= i;
-        CheckHealth();
+        return CheckHealth();
     }
 
-    public void CheckHealth()
+    public bool CheckHealth()
     {
         if(health <= deadThresh)
         {
             GameManager.Get().Die();
+            return true;
         } else if(health >= winThresh)
         {
             GameManager.Get().Win();
+            return true;
         }
+        return false;
     }
 
     // Update is called once per frame

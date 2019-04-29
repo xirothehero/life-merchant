@@ -1,0 +1,155 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class CombatManager : MonoBehaviour
+{
+
+    public List<BaseEnemy> baseEnemies;
+
+    public ItemBox weaponBox;
+
+    public Image playerImage;
+
+    public Image currentEnemyImage;
+    public Text enemyHealthText;
+    public Text enemyAttackText;
+
+    public Text playerHealthText;
+    public Text playerAttackText;
+
+    public GameObject selectButtons;
+    public GameObject outOfItems;
+
+    public Color damageColor;
+    public Color restColor;
+
+    Enemy currentEnemy;
+
+    int weaponIndex = 0;
+
+    int playerDefenseModifier = 0;
+
+    string playerAttack = "-";
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        currentEnemy = randomEnemy();
+        currentEnemyImage.sprite = currentEnemy.getSprite();
+        updateItem();
+        UpdatePlayerValues();
+        UpdateEnemyValues();
+    }
+
+    Enemy randomEnemy(){
+        int baseEnemyIndex = Random.Range(0, baseEnemies.Count);
+        Enemy enemy = baseEnemies[baseEnemyIndex].GetRandomVariant();
+        return enemy;
+    }
+
+    public void nextItem(){
+        weaponIndex++;
+        weaponIndex %= Inventory.Get().countItems();
+        updateItem();
+    }
+
+    void updateItem(){
+        Item item = Inventory.Get().GetItem(weaponIndex);
+        if (item != null){
+            weaponBox.SetItem(Inventory.Get().GetItem(weaponIndex));
+        }
+        else{
+            selectButtons.SetActive(false);
+            outOfItems.SetActive(true);
+        }
+    }
+
+    public void useItem(){
+        Item usedItem = Inventory.Get().GetItem(weaponIndex);
+        Inventory.Get().RemoveItem(usedItem);
+    }
+
+    void applyEffects(Item item){
+        List<BaseItem.Effect> effects = item.effects();
+        foreach (BaseItem.Effect effect in effects){
+            switch(effect.type){
+                case BaseItem.Effect.Type.Attack:
+                    AttackEnemy(effect.effectValues[item.variantId]);
+                    break;
+                case BaseItem.Effect.Type.Defense:
+                    ApplyDefenseModifier(effect.effectValues[item.variantId]);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    void AttackEnemy(int damage){
+        setEnemyDamageColor();
+        Invoke("setEnemyRestColor",0.2f);
+        currentEnemy.loseHealth(damage);
+        UpdateEnemyValues();
+    }
+    void CheckEnemyHealth(){
+        if (currentEnemy.getHealth() == 0){
+            JourneyManager.Get().NextBattle();
+        }
+    }
+
+    void ApplyDefenseModifier(int modifier){
+        playerDefenseModifier += modifier;
+    }
+
+    void setEnemyRestColor(){
+        currentEnemyImage.color = restColor;
+        enemyAttackText.color = restColor;
+        enemyHealthText.color = restColor;
+        weaponBox.gameObject.SetActive(true);
+        CheckEnemyHealth();
+    }
+
+    void setEnemyDamageColor(){
+        currentEnemyImage.color = damageColor;
+        enemyAttackText.color = damageColor;
+        enemyHealthText.color = damageColor;
+        weaponBox.gameObject.SetActive(false);
+    }
+
+    void setPlayerRestColor(){
+        playerImage.color = restColor;
+        playerAttackText.color = restColor;
+        playerHealthText.color = restColor;
+        weaponBox.gameObject.SetActive(true);
+        CheckEnemyHealth();
+    }
+
+    void setPlayerDamageColor(){
+        playerImage.color = damageColor;
+        playerAttackText.color = damageColor;
+        playerHealthText.color = damageColor;
+        weaponBox.gameObject.SetActive(false);
+    }
+
+    void AttackPlayer(int damage){
+        setPlayerDamageColor();
+        int health = (int) Mathf.Ceil(damage * (1 - 0.1f*playerDefenseModifier));
+        if (!Player.Get().RemoveHealth(health)){
+            Invoke("setPlayerRestColor",0.2f);
+        }
+        UpdatePlayerValues();
+    }
+
+    void UpdateEnemyValues(){
+        enemyHealthText.text = currentEnemy.getHealth().ToString();
+        enemyAttackText.text = currentEnemy.getAttack().ToString();
+    }
+
+    void UpdatePlayerValues(){
+        playerHealthText.text = Player.Get().GetHealth().ToString();
+        playerAttackText.text = playerAttack;
+    }
+
+}
