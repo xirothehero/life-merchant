@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 9145908760050707396}
   - component: {fileID: 3246443900241842167}
+  - component: {fileID: 1696632858278981784}
+  - component: {fileID: 1295864873835875712}
   m_Layer: 0
   m_Name: Managers
-  m_TagString: Untagged
+  m_TagString: Managers
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,3 +47,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseItems:
   - {fileID: 11400000, guid: 09925a697dbcbbf4db28374bd2568cd3, type: 2}
+--- !u!114 &1696632858278981784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9145908760050707397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c320331069e7904ebf988408edab956, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items: []
+--- !u!114 &1295864873835875712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9145908760050707397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f3417c89e8df2c4ea343107fbb38d4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
+  stock: []
+  selectedItems: []
+  realm: 0
+  buyVar: 0.3
