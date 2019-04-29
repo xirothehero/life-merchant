@@ -88,11 +88,13 @@ public class CombatManager : MonoBehaviour
     void AttackEnemy(int damage){
         setEnemyDamageColor();
         Invoke("setEnemyRestColor",0.2f);
-        int health = currentEnemy.loseHealth(damage);
-        if (health == 0){
-            //TODO enemy dies
-        }
+        currentEnemy.loseHealth(damage);
         UpdateEnemyValues();
+    }
+    void CheckEnemyHealth(){
+        if (currentEnemy.getHealth() == 0){
+            JourneyManager.Get().NextBattle();
+        }
     }
 
     void ApplyDefenseModifier(int modifier){
@@ -101,10 +103,17 @@ public class CombatManager : MonoBehaviour
 
     void setEnemyRestColor(){
         currentEnemyImage.color = restColor;
+        enemyAttackText.color = restColor;
+        enemyHealthText.color = restColor;
+        weaponBox.gameObject.SetActive(true);
+        CheckEnemyHealth();
     }
 
     void setEnemyDamageColor(){
         currentEnemyImage.color = damageColor;
+        enemyAttackText.color = damageColor;
+        enemyHealthText.color = damageColor;
+        weaponBox.gameObject.SetActive(false);
     }
 
     void AttackPlayer(int damage){
