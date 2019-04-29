@@ -16,7 +16,7 @@ public class ItemList : MonoBehaviour
 
     public GameObject listParent;
 
-    public GameObject invListParent;
+    //public GameObject invListParent;
 
     // Start is called before the first frame update
     void Start()

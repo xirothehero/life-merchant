@@ -10,6 +10,8 @@ public class BlacksmithManager : MonoBehaviour
     public GameObject managerBlueprint;
 
     public GameObject buyPanel;
+    public GameObject sellPanel;
+
 
     // Start is called before the first frame update
     void Start()
@@ -37,5 +39,11 @@ public class BlacksmithManager : MonoBehaviour
     public void ShowBlacksmith()
     {
         buyPanel.SetActive(true);
+        
+    }
+
+    public void ShowMarket()
+    {
+        sellPanel.SetActive(true);
     }
 }
