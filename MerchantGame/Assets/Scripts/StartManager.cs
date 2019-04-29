@@ -8,6 +8,8 @@ public class StartManager : MonoBehaviour
 
     public Stage stage;
 
+    public GameObject inblack;
+
     public GameObject title;
     public GameObject begin;
 
@@ -20,20 +22,30 @@ public class StartManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        title.GetComponent<FadeIn>().StartFadeIn();
-        begin.GetComponent<FadeIn>().StartFadeIn();
+        inblack.SetActive(true);
+        inblack.GetComponent<FadeIn>().StartFadeOut();
+        title.SetActive(false);
+        begin.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(inblack.GetComponent<FadeIn>().state == FadeIn.State.Out && begin.GetComponent<FadeIn>().state == FadeIn.State.Out)
+        {
+            title.SetActive(true);
+            begin.SetActive(true);
+            title.GetComponent<FadeIn>().StartFadeIn();
+            begin.GetComponent<FadeIn>().StartFadeIn();
+        }
+
         if(stage == Stage.None)
         {
-            if(begin.GetComponent<FadeIn>().state == FadeIn.State.In)
+            if(begin.GetComponent<FadeIn>().state == FadeIn.State.In && spooky.GetComponent<FadeIn>().state == FadeIn.State.Out)
             {
                 if(Input.GetMouseButtonUp(0))
                 {
-                    foreach(GameObject instr in instructions)
+                    foreach (GameObject instr in instructions)
                     {
                         instr.SetActive(true);
                         instr.GetComponent<FadeIn>().StartFadeIn();
@@ -49,7 +61,9 @@ public class StartManager : MonoBehaviour
             }
         } else if(stage == Stage.ActuallyBegin)
         {
-            if (Input.GetMouseButtonUp(0))
+            title.SetActive(false);
+            begin.SetActive(false);
+            if (Input.GetMouseButtonUp(0) && fadeBlack.GetComponent<FadeIn>().state == FadeIn.State.Out && instructions[0].GetComponent<FadeIn>().state == FadeIn.State.In)
             {
                 fadeBlack.SetActive(true);
                 fadeBlack.GetComponent<FadeIn>().StartFadeIn();

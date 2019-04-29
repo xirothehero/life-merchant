@@ -26,7 +26,12 @@ public class GameManager : MonoBehaviour
         
     }
 
-
+    public void StartMenu()
+    {
+        Reset();
+        SceneManager.LoadScene("StartMenu");
+        Destroy(gameObject);
+    }
 
     public void StartGame()
     {
