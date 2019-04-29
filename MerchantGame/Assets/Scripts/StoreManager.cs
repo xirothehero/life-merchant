@@ -71,6 +71,7 @@ public class StoreManager : MonoBehaviour
     public void ClearStock()
     {
         stock.Clear();
+        selectedItems.Clear();
     }
 
     public void SelectItem(Item item)
