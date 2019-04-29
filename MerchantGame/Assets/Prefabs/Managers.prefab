@@ -9,11 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9145908760050707396}
-  - component: {fileID: 1072181465}
   - component: {fileID: 3246443900241842167}
   - component: {fileID: 1696632858278981784}
   - component: {fileID: 1295864873835875712}
-  - component: {fileID: 1072181466}
+  - component: {fileID: 2235986556543320458}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Managers
@@ -35,18 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1072181465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9145908760050707397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 872e036038ace4449887e924dc8c6b92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3246443900241842167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,7 +78,7 @@ MonoBehaviour:
   selectedItems: []
   realm: 0
   buyVar: 0.3
---- !u!114 &1072181466
+--- !u!114 &2235986556543320458
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,7 +87,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 9145908760050707397}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc751e6d94acf4446b39f48dbdc8712b, type: 3}
+  m_Script: {fileID: 11500000, guid: f8c30de029337844bbac76ce391c043e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  inventory: {fileID: 0}
+  selectedItems: []
+  realm: 0
+  buyVar: 0.2
