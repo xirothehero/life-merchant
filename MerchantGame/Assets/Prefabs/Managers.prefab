@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3246443900241842167}
   - component: {fileID: 1696632858278981784}
   - component: {fileID: 1295864873835875712}
+  - component: {fileID: 2235986556543320458}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Managers
@@ -77,3 +78,19 @@ MonoBehaviour:
   selectedItems: []
   realm: 0
   buyVar: 0.3
+--- !u!114 &2235986556543320458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9145908760050707397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8c30de029337844bbac76ce391c043e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
+  selectedItems: []
+  realm: 0
+  buyVar: 0.2

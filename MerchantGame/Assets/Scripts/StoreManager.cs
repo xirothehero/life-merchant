@@ -61,10 +61,10 @@ public class StoreManager : MonoBehaviour
 
     public List<Item> GetStock()
     {
-        foreach(Item it in stock)
-        {
-            Debug.Log(it.GetName());
-        }
+        // foreach(Item it in stock)
+        // {
+        //     Debug.Log(it.GetName());
+        // }
         return stock;
     }
 
@@ -93,7 +93,8 @@ public class StoreManager : MonoBehaviour
         int cost = 0;
         foreach(Item item in selectedItems)
         {
-            cost += realm == item.baseItem.realm ? item.GetLowCost() : item.GetHighCost();
+            //cost += realm == item.baseItem.realm ? item.GetLowCost() : item.GetHighCost();
+            cost += item.currentCost;
         }
 
         return cost;
@@ -109,6 +110,7 @@ public class StoreManager : MonoBehaviour
         }
 
         selectedItems.Clear();
+
     }
 
     // Update is called once per frame
