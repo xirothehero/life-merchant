@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         Reset();
+
+        Screen.SetResolution(1024, 768, false);
     }
 
     public void Reset()

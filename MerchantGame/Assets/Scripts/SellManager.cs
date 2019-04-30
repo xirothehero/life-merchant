@@ -77,9 +77,10 @@ public class SellManager : MonoBehaviour
             inventoryItems.Remove(item);
         }
         Player.Get().AddHealth(GetSelectedCost());
-        selectedItems.Clear();
-
-        AudioManager.Get().PlaySound(AudioManager.SoundClipName.Sell);
+        if(selectedItems.Count != 0){
+            AudioManager.Get().PlaySound(AudioManager.SoundClipName.Sell);
+        }
+            selectedItems.Clear();
 
     }
 
