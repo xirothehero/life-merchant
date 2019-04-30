@@ -62,6 +62,8 @@ public class CombatManager : MonoBehaviour
         Item item = Inventory.Get().GetItem(weaponIndex);
         if (item != null){
             weaponBox.SetItem(Inventory.Get().GetItem(weaponIndex));
+            selectButtons.SetActive(true);
+            outOfItems.SetActive(false);
         }
         else{
             selectButtons.SetActive(false);
@@ -112,6 +114,7 @@ public class CombatManager : MonoBehaviour
     void CheckEnemyHealth(){
         if (currentEnemy.getHealth() == 0){
             AudioManager.Get().PlaySound(AudioManager.SoundClipName.Death);
+            updateItem();
             JourneyManager.Get().NextBattle();
         }
     }
@@ -167,6 +170,10 @@ public class CombatManager : MonoBehaviour
     void UpdatePlayerValues(){
         playerHealthText.text = Player.Get().GetHealth().ToString();
         playerAttackText.text = playerAttack;
+    }
+
+    void Update(){
+        updateItem();
     }
 
 }
