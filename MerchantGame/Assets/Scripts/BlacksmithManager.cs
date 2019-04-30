@@ -26,6 +26,8 @@ public class BlacksmithManager : MonoBehaviour
 
     public Image sellerImage;
 
+    public int qty = 30;
+
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +54,7 @@ public class BlacksmithManager : MonoBehaviour
 
         title.GetComponent<FadeIn>().StartFadeIn();
 
-        StoreManager.Get().GenerateStock(10);
+        StoreManager.Get().GenerateStock(qty);
     }
 
     // Update is called once per frame
