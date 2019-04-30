@@ -37,7 +37,7 @@ public class JourneyManager : MonoBehaviour
     public void NextBattle(){
         currBattle++;
         currBattle %= numBattles;
-        if (currBattle == numBattles - 1){
+        if (currBattle == numBattles){
             SceneManager.LoadScene(destinationSceneName);
         }
         else{
