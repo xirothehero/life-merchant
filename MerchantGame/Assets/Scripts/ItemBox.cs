@@ -36,6 +36,15 @@ public class ItemBox : MonoBehaviour
         costText.text = item.GetCurrentCost().ToString();
 
         // TODO atk/def
+        List<BaseItem.Effect> eff_list = item.baseItem.effects;
+        foreach(BaseItem.Effect effect in eff_list){
+            if (effect.type == BaseItem.Effect.Type.Attack){
+                atk.text = effect.effectValues[item.variantId].ToString();
+            }
+            if (effect.type == BaseItem.Effect.Type.Defense){
+                def.text = effect.effectValues[item.variantId].ToString();
+            }
+        }
     }
     
     public void OnClick()
