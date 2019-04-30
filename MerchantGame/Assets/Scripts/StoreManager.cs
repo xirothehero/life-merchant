@@ -99,8 +99,12 @@ public class StoreManager : MonoBehaviour
     // Move selectedItems to inventory
     public void Buy()
     {
+        Player.Get().RemoveHealth(GetSelectedCost());
+        
         foreach (Item item in selectedItems)
         {
+            
+
             // Random cost variance
             if(realm == item.baseItem.realm)
             {
@@ -112,7 +116,7 @@ public class StoreManager : MonoBehaviour
             Inventory.Get().AddItem(item);
             stock.Remove(item);
         }
-        Player.Get().RemoveHealth(GetSelectedCost());
+        
         selectedItems.Clear();
 
         AudioManager.Get().PlaySound(AudioManager.SoundClipName.Buy);
