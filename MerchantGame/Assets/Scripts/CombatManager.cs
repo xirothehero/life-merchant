@@ -152,7 +152,7 @@ public class CombatManager : MonoBehaviour
 
     void AttackPlayer(){
         setPlayerDamageColor();
-        int health = (int) Mathf.Ceil(currentEnemy.getAttack() * (1 - 0.1f*playerDefenseModifier));
+        int health = (int) Mathf.Ceil( currentEnemy.getAttack() * Mathf.Clamp01((1 - 0.01f)*playerDefenseModifier) );
         if (!Player.Get().RemoveHealth(health)){
             Invoke("setPlayerRestColor",0.2f);
         }

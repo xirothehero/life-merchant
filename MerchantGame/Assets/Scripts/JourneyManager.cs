@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class JourneyManager : MonoBehaviour
 {
     public int numBattles = 3;
-    public int currBattle = 0;
+    private int currBattle = 0;
 
     public string destinationSceneName;
 
@@ -36,8 +36,9 @@ public class JourneyManager : MonoBehaviour
 
     public void NextBattle(){
         currBattle++;
-        currBattle %= numBattles;
+        currBattle %= numBattles + 1;
         if (currBattle == numBattles){
+            currBattle = 0;
             SceneManager.LoadScene(destinationSceneName);
         }
         else{
