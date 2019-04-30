@@ -35,7 +35,7 @@ public class CombatManager : MonoBehaviour
 
     string playerAttack = "-";
 
-    // Start is called before the first frame update
+    // Start is called before the first  update
     void Start()
     {
         currentEnemy = randomEnemy();
@@ -43,6 +43,7 @@ public class CombatManager : MonoBehaviour
         updateItem();
         UpdatePlayerValues();
         UpdateEnemyValues();
+        AudioManager.Get().PlayMusic(AudioManager.MusicClipName.BattleMusic);
     }
 
     Enemy randomEnemy(){
@@ -70,6 +71,7 @@ public class CombatManager : MonoBehaviour
 
     public void useItem(){
         Item usedItem = Inventory.Get().GetItem(weaponIndex);
+        playAttackSound(usedItem);
         applyEffects(usedItem);
         Inventory.Get().RemoveItem(usedItem);
         updateItem();
@@ -93,9 +95,11 @@ public class CombatManager : MonoBehaviour
 
     void playAttackSound(Item item){
         if (item.baseItem.baseName == "Magic Mist"){
+            Debug.Log("Played mm");
             AudioManager.Get().PlaySound(AudioManager.SoundClipName.MagicMist);
         }
         if (item.baseItem.baseName == "Sword"){
+                        Debug.Log("Played sword");
             AudioManager.Get().PlaySound(AudioManager.SoundClipName.SwordStrike);
         }
     }

@@ -16,6 +16,8 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         sources = GetComponents<AudioSource>(); 
+        sources[(int)SoundType.Music].loop = true;
+        sources[(int)SoundType.Sound].loop = false;
     }
 
     public static AudioManager Get()
