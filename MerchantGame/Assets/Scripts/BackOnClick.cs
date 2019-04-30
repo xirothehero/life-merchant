@@ -21,5 +21,6 @@ public class BackOnClick : MonoBehaviour
             bool isActive = Panel.activeSelf;
             Panel.SetActive(!isActive);
         }
+        AudioManager.Get().PlaySound(AudioManager.SoundClipName.PanelClose);
     }
 }

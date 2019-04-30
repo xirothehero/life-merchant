@@ -43,11 +43,13 @@ public class SellManager : MonoBehaviour
     public void SelectItem(Item item)
     {
         selectedItems.Add(item);
+        AudioManager.Get().PlaySound(AudioManager.SoundClipName.Select);
     }
 
     public void DeselectItem(Item item)
     {
         selectedItems.Remove(item);
+        AudioManager.Get().PlaySound(AudioManager.SoundClipName.Deselect);
     }
 
     public List<Item> GetSelectedItems()
@@ -76,6 +78,8 @@ public class SellManager : MonoBehaviour
         }
         Player.Get().AddHealth(GetSelectedCost());
         selectedItems.Clear();
+
+        AudioManager.Get().PlaySound(AudioManager.SoundClipName.Sell);
 
     }
 

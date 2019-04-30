@@ -114,6 +114,8 @@ public class StoreManager : MonoBehaviour
         }
         Player.Get().RemoveHealth(GetSelectedCost());
         selectedItems.Clear();
+
+        AudioManager.Get().PlaySound(AudioManager.SoundClipName.Buy);
     }
 
     // Update is called once per frame
