@@ -16,6 +16,16 @@ public class BlacksmithManager : MonoBehaviour
     public GameObject buyPanel;
     public GameObject sellPanel;
 
+    public GameObject HPtext;
+
+    public Sprite blacksmithImage;
+
+    public Sprite magicianImage;
+
+    public Image buyerImage;
+
+    public Image sellerImage;
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,11 +39,15 @@ public class BlacksmithManager : MonoBehaviour
         {
             title.GetComponent<Text>().text = "City of Akk-Ii";
             buyText.GetComponent<Text>().text = "Buy from blacksmith";
+            buyerImage.GetComponent<Image>().sprite = blacksmithImage;
+            sellerImage.GetComponent<Image>().sprite = blacksmithImage;
         }
         else
         {
             title.GetComponent<Text>().text = "City of Ah-Yi";
             buyText.GetComponent<Text>().text = "Buy from sorceror";
+            buyerImage.GetComponent<Image>().sprite = magicianImage;
+            sellerImage.GetComponent<Image>().sprite = magicianImage;
         }
 
         title.GetComponent<FadeIn>().StartFadeIn();
@@ -49,6 +63,8 @@ public class BlacksmithManager : MonoBehaviour
         {
             title.GetComponent<FadeIn>().StartFadeOut();
         }
+
+        HPtext.GetComponent<Text>().text = Player.Get().health.ToString();
     }
 
     public void ShowBlacksmith()
@@ -64,6 +80,8 @@ public class BlacksmithManager : MonoBehaviour
 
     public void LeaveRealm()
     {
+        float buyVar = StoreManager.Get().buyVar;
+
         if (StoreManager.Get().realm == BaseItem.Realm.Physical)
         {
             StoreManager.Get().realm = BaseItem.Realm.Magical;
@@ -73,7 +91,19 @@ public class BlacksmithManager : MonoBehaviour
             StoreManager.Get().realm = BaseItem.Realm.Physical;
         }
 
+        foreach (Item item in Inventory.Get().GetItems())
+        {
+            // Random cost variance
+            if(StoreManager.Get().realm == item.baseItem.realm)
+            {
+                item.currentCost = (int) (item.GetLowCost() * (1 + Random.Range(-buyVar, buyVar)));
+            } else
+            {
+                item.currentCost = (int) (item.GetHighCost() * (1 + Random.Range(-buyVar, buyVar)));
+            }
+        }
+
         StoreManager.Get().ClearStock();
-        SceneManager.LoadScene("Blacksmith");
+        SceneManager.LoadScene("Combat");
     }
 }
