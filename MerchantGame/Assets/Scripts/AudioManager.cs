@@ -10,7 +10,7 @@ public class AudioManager : MonoBehaviour
     public List<AudioClip> soundClips;
 
     public enum SoundType {Sound, Music};
-    public enum MusicClipName{BackgroundMusic, BattleMusic}; 
+    public enum MusicClipName{BackgroundMusic, BattleMusic, TitleMusic}; 
     public enum SoundClipName{MagicMist, SwordStrike, Death, PanelOpen, PanelClose, Buy, Sell, Select, Deselect}; 
     // Start is called before the first frame update
     void Start()
