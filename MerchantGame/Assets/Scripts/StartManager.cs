@@ -26,6 +26,8 @@ public class StartManager : MonoBehaviour
         inblack.GetComponent<FadeIn>().StartFadeOut();
         title.SetActive(false);
         begin.SetActive(false);
+
+        AudioManager.Get().PlayMusic(AudioManager.MusicClipName.TitleMusic);
     }
 
     // Update is called once per frame

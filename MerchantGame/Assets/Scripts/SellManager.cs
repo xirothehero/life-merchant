@@ -43,13 +43,13 @@ public class SellManager : MonoBehaviour
     public void SelectItem(Item item)
     {
         selectedItems.Add(item);
-        AudioManager.Get().PlaySound(AudioManager.SoundClipName.Select);
+        //AudioManager.Get().PlaySound(AudioManager.SoundClipName.Select);
     }
 
     public void DeselectItem(Item item)
     {
         selectedItems.Remove(item);
-        AudioManager.Get().PlaySound(AudioManager.SoundClipName.Deselect);
+        //AudioManager.Get().PlaySound(AudioManager.SoundClipName.Deselect);
     }
 
     public List<Item> GetSelectedItems()

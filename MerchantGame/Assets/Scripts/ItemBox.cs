@@ -60,6 +60,7 @@ public class ItemBox : MonoBehaviour
             else{
                 SellManager.Get().SelectItem(item);
             }
+            AudioManager.Get().PlaySound(AudioManager.SoundClipName.Select);
         }
         else
         {
@@ -70,6 +71,7 @@ public class ItemBox : MonoBehaviour
             else {
                 SellManager.Get().DeselectItem(item);
             }
+            AudioManager.Get().PlaySound(AudioManager.SoundClipName.Deselect);
         }
 
         GetComponent<Image>().color = btnColor;
