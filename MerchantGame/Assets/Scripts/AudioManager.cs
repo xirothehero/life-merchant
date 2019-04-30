@@ -18,6 +18,18 @@ public class AudioManager : MonoBehaviour
         sources = GetComponents<AudioSource>(); 
     }
 
+    public static AudioManager Get()
+    {
+        AudioManager gm = null;
+
+        if(GameObject.FindWithTag("Managers") != null)
+        {
+            gm = GameObject.FindWithTag("Managers").GetComponent<AudioManager>();
+        }
+
+        return gm;
+    }
+
     
     public void PlayMusic(MusicClipName name){
         sources[(int)SoundType.Music].clip = musicClips[(int)name];
