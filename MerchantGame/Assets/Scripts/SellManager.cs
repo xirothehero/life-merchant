@@ -72,11 +72,13 @@ public class SellManager : MonoBehaviour
     // Move selectedItems to inventory
     public void Sell()
     {
+        Player.Get().AddHealth(GetSelectedCost());
+
         foreach (Item item in selectedItems)
         {
             inventoryItems.Remove(item);
         }
-        Player.Get().AddHealth(GetSelectedCost());
+        
         if(selectedItems.Count != 0){
             AudioManager.Get().PlaySound(AudioManager.SoundClipName.Sell);
         }

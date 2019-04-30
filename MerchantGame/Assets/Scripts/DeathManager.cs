@@ -27,6 +27,8 @@ public class DeathManager : MonoBehaviour
         deadImg.GetComponent<FadeIn>().StartFadeIn();
         text.SetActive(true);
         text.GetComponent<FadeIn>().StartFadeIn();
+
+        AudioManager.Get().PlayMusic(AudioManager.MusicClipName.DeathMusic);
     }
 
     // Update is called once per frame
