@@ -91,6 +91,15 @@ public class CombatManager : MonoBehaviour
         }
     }
 
+    void playAttackSound(Item item){
+        if (item.baseItem.baseName == "Magic Mist"){
+            AudioManager.Get().PlaySound(AudioManager.SoundClipName.MagicMist);
+        }
+        if (item.baseItem.baseName == "Sword"){
+            AudioManager.Get().PlaySound(AudioManager.SoundClipName.SwordStrike);
+        }
+    }
+
     void AttackEnemy(int damage){
         setEnemyDamageColor();
         Invoke("setEnemyRestColor",0.2f);
@@ -100,6 +109,7 @@ public class CombatManager : MonoBehaviour
     }
     void CheckEnemyHealth(){
         if (currentEnemy.getHealth() == 0){
+            AudioManager.Get().PlaySound(AudioManager.SoundClipName.Death);
             JourneyManager.Get().NextBattle();
         }
     }
