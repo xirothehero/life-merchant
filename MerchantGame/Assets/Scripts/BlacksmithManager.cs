@@ -53,8 +53,8 @@ public class BlacksmithManager : MonoBehaviour
         }
 
         title.GetComponent<FadeIn>().StartFadeIn();
-
         StoreManager.Get().GenerateStock(qty);
+        AudioManager.Get().PlayMusic(AudioManager.MusicClipName.BackgroundMusic);
     }
 
     // Update is called once per frame
@@ -72,12 +72,14 @@ public class BlacksmithManager : MonoBehaviour
     public void ShowBlacksmith()
     {
         buyPanel.SetActive(true);
+        AudioManager.Get().PlaySound(AudioManager.SoundClipName.PanelOpen);
         
     }
 
     public void ShowMarket()
     {
         sellPanel.SetActive(true);
+        AudioManager.Get().PlaySound(AudioManager.SoundClipName.PanelOpen);
     }
 
     public void LeaveRealm()
