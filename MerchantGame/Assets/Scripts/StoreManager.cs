@@ -24,7 +24,7 @@ public class StoreManager : MonoBehaviour
         inventory = Inventory.Get();
 
         //Remove once the scenes are linked
-        GenerateStock(10);
+        GenerateStock(30);
     }
 
     public static StoreManager Get()

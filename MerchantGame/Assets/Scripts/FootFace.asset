@@ -17,7 +17,7 @@ MonoBehaviour:
   - FootFace
   sprites:
   - {fileID: 21300000, guid: 31f4de1e01007433b878a7df2ddb6261, type: 3}
-  lowHealths: 04000000
-  highHealths: 06000000
-  lowAttacks: 02000000
-  highAttacks: 03000000
+  lowHealths: 01000000
+  highHealths: 02000000
+  lowAttacks: 01000000
+  highAttacks: 02000000
