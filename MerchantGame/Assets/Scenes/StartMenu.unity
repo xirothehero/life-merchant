@@ -240,8 +240,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -20.6}
-  m_SizeDelta: {x: 810.7, y: 584.5}
+  m_AnchoredPosition: {x: 0, y: -33.2}
+  m_SizeDelta: {x: 810.7, y: 609.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &66850368
 MonoBehaviour:
@@ -265,10 +265,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 89a82e8d4e905fa4ca9b1a6b4fea5be6, type: 3}
-    m_FontSize: 30
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -276,29 +276,31 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'In this world, everything is bought and sold with life. It''s quite efficient.
-    However, some find themselves in debt. While the world is more prosperous than
-    it has ever been, those who lose their life find themselves sent to a realm between
-    life and death.
+  m_Text: 'In this world, all transactions deal with life instead of currency. The
+    poor souls who go into debt end up here, in the Halfworld, where they live between
+    life and death. You start at 50 HP and must reach 100 HP in order to regain your
+    humanity.
 
 
-    Our protagonist lost her humanity long ago. She lives as a Halflife in the Halfworld.
-    In order to live again, she must re-earn her life.
+    PURCHASING: Purchase combat items from the store using HP. The blacksmith has
+    cheaper physical items (swords, shields) while the sorceror sells cheaper spells.
+    These cost HP, so make sure to leave some to survive combat. You want to buy many
+    items to be able to kill the monsters en route to the other city, while having
+    some to sell for profit.
 
 
-    She is a merchant specializing in combat equipment. This is pragmatic-- as to
-    travel between the two cities she frequents, she must battle terrifying creatures.
+    COMBAT: On leaving town you encounter 3 enemies. Use the same items you purchased
+    as consumable items to deal damage. The Attack value is the damage dealt to the
+    enemy. (Defense doesn''t do anything right now.) Each turn, the enemy will inflict
+    its attack damage on you, so try and kill it quickly. You also don''t want to
+    use too many items because you will have nothing to sell for life later.
 
 
-    Purchase physical combat items in one city to sell for a profit in the magical
-    city, and purchase magical items in this city to sell in the physical city.
+    SELLING: Sell physical items in the sorceror town for more profit, and magiacal
+    items in the blacksmith town for profit.
 
 
-    Reach 100 HP to truly live again.
-
-
-
-'
+    Good luck and be prepared to retry more than once before winning!'
 --- !u!222 &66850369
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -343,7 +345,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &321025049
 RectTransform:
   m_ObjectHideFlags: 0
