@@ -30,8 +30,8 @@ MonoBehaviour:
   - A student's eventually successful attempt at a spell.
   - This spell is guaranteed to be effective.
   - This spell is covered in many extra enhancements between the standard spell.
-  lowCosts: 070000000c0000001900000028000000
-  highCosts: 0a0000000f0000001e00000032000000
+  lowCosts: 02000000040000000c00000014000000
+  highCosts: 0600000009000000140000001e000000
   effects:
   - type: 0
     effectValues: 01000000020000000400000006000000
