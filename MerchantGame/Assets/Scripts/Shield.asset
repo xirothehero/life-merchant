@@ -30,7 +30,7 @@ MonoBehaviour:
   - A sturdy defense.
   - Nothing can pierce this.
   lowCosts: 03000000060000000a0000001e000000
-  highCosts: 03000000090000000f00000028000000
+  highCosts: 03000000070000000d00000028000000
   effects:
   - type: 1
     effectValues: 1e000000320000004600000064000000

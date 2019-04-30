@@ -29,8 +29,8 @@ MonoBehaviour:
   - A sword made out of WHAT? That's a terrible idea...
   - Just like the Greeks had.
   - It glitters beautifully as if made from starlight.
-  lowCosts: 02000000040000000700000009000000
-  highCosts: 02000000060000000c00000012000000
+  lowCosts: 0400000006000000090000000f000000
+  highCosts: 080000000c0000001100000013000000
   effects:
   - type: 0
-    effectValues: 0100000003000000050000000a000000
+    effectValues: 0200000005000000080000000a000000
