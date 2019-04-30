@@ -60,5 +60,6 @@ public class GameManager : MonoBehaviour
     public void Win()
     {
         Debug.Log("yay u win & get a life or something");
+        SceneManager.LoadScene("Win");
     }
 }

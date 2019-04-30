@@ -43,7 +43,6 @@ public class FadeIn : MonoBehaviour
 
     IEnumerator FadeInAnimation()
     {
-        Debug.Log("fadein");
         SetColor(new Color(ogColor.r, ogColor.g, ogColor.b, 0));
         state = State.Fading;
 
