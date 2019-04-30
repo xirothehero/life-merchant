@@ -95,11 +95,9 @@ public class CombatManager : MonoBehaviour
 
     void playAttackSound(Item item){
         if (item.baseItem.baseName == "Magic Mist"){
-            Debug.Log("Played mm");
             AudioManager.Get().PlaySound(AudioManager.SoundClipName.MagicMist);
         }
         if (item.baseItem.baseName == "Sword"){
-                        Debug.Log("Played sword");
             AudioManager.Get().PlaySound(AudioManager.SoundClipName.SwordStrike);
         }
     }
